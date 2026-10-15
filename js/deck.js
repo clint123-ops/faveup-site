@@ -9,6 +9,7 @@ const en = {
   'chrome.navLabel': 'Slide navigation',
   'chrome.prev': 'Previous slide',
   'chrome.next': 'Next slide',
+  'chrome.rotate': 'Turn your phone sideways for bigger slides',
   'deck.foot': 'FaveUp · Built with ❤️ for local businesses and their communities',
 
   'phone.date': 'Tuesday, December 17',
@@ -160,9 +161,16 @@ function goTo(index, { scroll } = { scroll: true }) {
       slide.inert = i !== current;
     });
   } else if (scroll) {
-    slides[current].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollToSlide(current, 'smooth');
   }
   updateChrome();
+}
+
+// Stacked layout: land the slide just below the sticky header.
+function scrollToSlide(index, behavior) {
+  const header = document.querySelector('.deck-bar').getBoundingClientRect().height;
+  const top = slides[index].getBoundingClientRect().top + window.scrollY - header - 12;
+  window.scrollTo({ top, behavior });
 }
 
 function fit() {
@@ -170,12 +178,13 @@ function fit() {
   const styles = getComputedStyle(deck);
   const width = box.width - parseFloat(styles.paddingLeft) - parseFloat(styles.paddingRight);
   const height = box.height - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
-  stage.style.setProperty('--scale', String(Math.min(width / 1280, height / 720)));
+  if (pagedQuery.matches) stage.style.setProperty('--scale', String(Math.min(width / 1280, height / 720)));
+  else stage.style.setProperty('--mscale', String(width / 1280));
 }
 
 function applyMode() {
+  fit();
   if (pagedQuery.matches) {
-    fit();
     goTo(current, { scroll: false });
   } else {
     for (const slide of slides) {
@@ -183,7 +192,7 @@ function applyMode() {
       slide.inert = false;
     }
     // Instant, so the observer's first report already sees the deep-linked slide.
-    slides[current].scrollIntoView({ block: 'start', behavior: 'instant' });
+    if (current > 0) scrollToSlide(current, 'instant');
   }
 }
 
@@ -213,7 +222,8 @@ stage.addEventListener('pointerup', (event) => {
   if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) goTo(current + (dx < 0 ? 1 : -1));
 });
 
-// In the scrolling layout the counter follows the slide in view.
+// In the scrolling layout the counter follows the slide just under the header
+// (slides are short on phones, so the middle of the screen can already show the next one).
 const visibility = new IntersectionObserver(
   (entries) => {
     if (pagedQuery.matches) return;
@@ -225,13 +235,11 @@ const visibility = new IntersectionObserver(
       updateChrome();
     }
   },
-  { rootMargin: '-45% 0px -45% 0px' },
+  { rootMargin: '-15% 0px -75% 0px' },
 );
 for (const slide of slides) visibility.observe(slide);
 
-window.addEventListener('resize', () => {
-  if (pagedQuery.matches) fit();
-});
+window.addEventListener('resize', fit);
 pagedQuery.addEventListener('change', applyMode);
 
 const fromHash = Number.parseInt(location.hash.slice(1), 10);

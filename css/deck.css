@@ -1,5 +1,5 @@
-/* Detailed presentation. Desktop: a 1280×720 canvas scaled to fit (matches the PDF layout).
-   Phones / portrait: the same slides reflow into a vertical, scrollable document. */
+/* Detailed presentation. Every slide is one 1280×720 canvas (the PDF layout).
+   Desktop: one slide at a time, scaled to fit. Phones: all slides stacked, zoomed to the screen width. */
 
 :root {
   --d-bg: #f1fcfa;
@@ -200,6 +200,9 @@
 
 .slide {
   position: relative;
+  width: 1280px;
+  height: 720px;
+  padding: 50px 86px 0;
   overflow: hidden;
   isolation: isolate;
   background: var(--d-bg);
@@ -1294,9 +1297,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 1280px;
-    height: 720px;
-    padding: 50px 86px 0;
     transform-origin: 0 0;
     transform: scale(var(--scale, 1));
     opacity: 0;
@@ -1339,436 +1339,52 @@
 }
 
 /* =================================================================
-   Phones / portrait tablets: slides stack and reflow.
+   Phones and small screens: the same slides, zoomed to the screen
+   width and stacked like the pages of the PDF (pinch-zoom still works).
    ================================================================= */
 
 @media not ((min-width: 900px) and (min-height: 560px)) {
   .deck {
-    display: grid;
-    gap: 16px;
-    padding: 16px 16px 104px;
+    padding: 12px 12px 96px;
   }
 
   .deck__stage {
     display: grid;
-    gap: 16px;
+    gap: 12px;
   }
 
   .slide {
-    padding: 36px 22px 76px;
-    border-radius: 22px;
-    font-size: 16px;
-    box-shadow: 0 20px 40px -30px rgb(8 60 52 / 0.45);
-    scroll-margin-top: calc(var(--bar-h) + 12px);
-  }
-
-  .slide--light::before {
-    left: auto;
-    right: -120px;
-    top: -60px;
-    width: 300px;
-    height: 300px;
-  }
-
-  .slide--light::after {
-    left: -60px;
-    top: auto;
-    bottom: -140px;
-    width: 260px;
-    height: 260px;
-  }
-
-  .slide--teal::before {
-    left: auto;
-    right: -160px;
-    width: 360px;
-    height: 420px;
-  }
-
-  .slide--teal::after {
-    left: -80px;
-    top: auto;
-    bottom: -120px;
-    width: 260px;
-    height: 260px;
-  }
-
-  .s-film::before {
-    left: -80px;
-    top: -80px;
-    width: 300px;
-    height: 300px;
-  }
-
-  .s-film::after {
-    left: auto;
-    right: 0;
-    top: auto;
-    bottom: 0;
-    width: 50%;
-    height: 220px;
-  }
-
-  .slide__foot {
-    left: 22px;
-    right: 22px;
-    bottom: 24px;
-    font-size: 12px;
-    gap: 12px;
-  }
-
-  .slide__brand span:last-child {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .slide__foot > span:last-child {
-    flex-shrink: 0;
-  }
-
-  .logo--foot {
-    width: 20px;
-    height: 20px;
-  }
-
-  .s-title,
-  .s-title--lg,
-  .s-title--sm,
-  .s-title--contact {
-    font-size: clamp(26px, 7.4vw, 34px);
-  }
-
-  .s-sub {
-    font-size: 17px;
-  }
-
-  .s-intro__copy,
-  .s-intro__phone,
-  .s-film__copy,
-  .s-film__phone,
-  .s-contact__copy,
-  .contact-card {
-    position: static;
-    width: auto;
-  }
-
-  .s-intro__copy {
-    text-align: left;
-  }
-
-  .logo-card {
-    padding: 12px 20px 12px 14px;
-    border-radius: 20px;
-  }
-
-  .logo--card {
-    width: 44px;
-    height: 44px;
-  }
-
-  .logo-card__text b {
-    font-size: 25px;
-  }
-
-  .s-intro__title {
-    margin-top: 22px;
-    font-size: clamp(32px, 9vw, 44px);
-  }
-
-  .s-intro__lead {
-    font-size: 18px;
-  }
-
-  .s-intro__phone,
-  .s-film__phone {
-    display: flex;
-    justify-content: center;
-    margin-top: 32px;
-  }
-
-  .s-intro__phone .phone {
-    --w: min(250px, 66vw);
-  }
-
-  .s-film__phone .phone {
-    --w: min(270px, 70vw);
-  }
-
-  .s-film__copy {
-    padding: 0;
-  }
-
-  .s-film__lead {
-    font-size: 17px;
-  }
-
-  .film-btn {
-    font-size: 18px;
-  }
-
-  .s-problem__top,
-  .grid-2,
-  .s-compare__grid,
-  .advantage__grid,
-  .s-partners__grid,
-  .conclusions {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-4,
-  .grid-3 {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .quote {
-    font-size: 17px;
-    padding: 18px 20px;
-  }
-
-  .s-problem__context {
-    padding-top: 4px;
-  }
-
-  .s-problem__context .s-muted,
-  .s-strong {
-    font-size: 16px;
-  }
-
-  .grid-4 .card,
-  .card--benefit,
-  .card--adv,
-  .card--step,
-  .card--step:nth-child(-n + 3),
-  .callout,
-  .common {
-    min-height: 0;
-  }
-
-  .grid-4 .card {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 14px;
-    align-items: start;
-  }
-
-  .grid-4 .card .ico {
-    grid-row: span 2;
-  }
-
-  .card__title {
-    margin-top: 2px;
-    font-size: 17px;
-  }
-
-  .card__text {
-    margin-top: 2px;
-    font-size: 15.5px;
-  }
-
-  .callout {
-    flex-direction: column;
-    gap: 14px;
-    font-size: 16px;
-  }
-
-  .flow {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .flow__card {
-    width: 100%;
-  }
-
-  .flow__arrow {
-    transform: rotate(90deg);
-  }
-
-  .flow__card p {
-    font-size: 16px;
-  }
-
-  .card--benefit {
-    padding: 22px 20px;
-  }
-
-  .card--benefit .ico {
-    top: 18px;
-    right: 18px;
-    width: 52px;
-    height: 52px;
-  }
-
-  .card--benefit p {
-    margin-top: 22px;
-    padding-right: 0;
-    font-size: 16.5px;
-  }
-
-  .s-compare .s-title__muted {
-    display: block;
-    font-size: 0.7em;
-  }
-
-  .common__icon {
-    display: none;
-  }
-
-  .common h3 {
-    margin-top: 0;
-  }
-
-  .advantage {
-    padding: 18px 16px 16px;
-  }
-
-  .advantage > h3 {
-    font-size: 21px;
-  }
-
-  .card--adv h4 {
-    font-size: 17px;
-  }
-
-  .banner {
-    font-size: 16px;
-    padding: 10px 16px;
-  }
-
-  .card--step p {
-    margin-top: 10px;
-    padding-right: 52px;
-    font-size: 16px;
-  }
-
-  .conclusions__label {
-    justify-self: start;
-    padding: 8px 18px;
-    font-size: 18px;
-  }
-
-  .conclusions__card {
-    font-size: 16px;
-  }
-
-  .partner {
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 4px 14px;
-    padding: 12px;
-  }
-
-  .partner img {
-    grid-row: span 2;
-  }
-
-  .partner .pill {
-    justify-self: start;
-  }
-
-  .partner img {
-    width: 56px;
-    height: 56px;
-  }
-
-  .partner h3 {
-    font-size: 18px;
-  }
-
-  .partner p {
-    font-size: 15px;
-  }
-
-  .pill {
-    padding: 5px 10px;
-    font-size: 13px;
-  }
-
-  .pill .i {
-    width: 14px;
-    height: 14px;
-  }
-
-  .big-stat {
-    margin-top: 0;
-    min-height: 0;
-    padding: 24px;
-  }
-
-  .big-stat__num {
-    font-size: 88px;
-  }
-
-  .big-stat__pre,
-  .big-stat__post {
-    font-size: 18px;
-  }
-
-  .screens {
-    width: auto;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 12px;
-    padding: 16px 12px;
-  }
-
-  .screens img {
-    width: 100%;
-  }
-
-  .screens figcaption {
-    font-size: 13px;
-  }
-
-  .s-contact__meet {
-    margin-top: 28px;
-    font-size: 23px;
-  }
-
-  .s-contact__desc,
-  .s-contact__cta {
-    font-size: 17px;
-  }
-
-  .contact-card {
-    margin-top: 28px;
-    padding: 22px 20px;
-  }
-
-  .contact-card__person img {
-    width: 64px;
-    height: 64px;
-  }
-
-  .contact-card__name {
-    font-size: 21px;
-  }
-
-  .contact-card__role {
-    font-size: 15px;
-  }
-
-  .contact-card__row {
-    font-size: 17px;
+    zoom: var(--mscale, 0.25);
+    border-radius: 28px;
+    box-shadow: 0 30px 60px -30px rgb(8 60 52 / 0.45);
   }
 }
 
-@media (min-width: 600px) and (not ((min-width: 900px) and (min-height: 560px))) {
-  .deck {
-    max-width: 860px;
-    margin: 0 auto;
+.deck-hint {
+  display: none;
+}
+
+/* Portrait phones: suggest turning sideways for bigger slides. */
+@media (orientation: portrait) and (max-width: 899px) {
+  .deck-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 12px 0;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--d-mint);
+    color: #0e7a6a;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
   }
-  .grid-4,
-  .grid-3,
-  .grid-2,
-  .advantage__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .screens {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .slide {
-    padding: 44px 36px 80px;
+
+  .deck-hint .i {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transform: rotate(90deg);
   }
 }
