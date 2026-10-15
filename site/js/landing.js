@@ -36,10 +36,6 @@ const en = {
   'what.title': 'What is FaveUp?',
   'what.desc':
     'FaveUp is a simple notification channel that bypasses social media noise and ineffective newsletters: customers scan a QR code and get news about promotions, novelties and new products, while you build loyalty and grow sales.',
-  'what.stat1': "and you're connected with your customer",
-  'what.stat2': 'delivery success rate',
-  'what.stat3Value': '$0',
-  'what.stat3': 'no custom app costs',
 
   'how.title': 'How does it work in practice?',
   'how.subtitle': '4 simple steps to reach your customers',
@@ -56,7 +52,7 @@ const en = {
   'why.subtitle': 'The simplest way to stay in touch with your customers',
   'why.b1': 'Reaches people who already know and like the place more effectively and grows sales among regulars – they get notified about new products, promotions and events',
   'why.b2': 'Can add time-limited offers and boost customer engagement with limited-time promotions',
-  'why.b3': 'Gets a simple communication channel without fighting for reach and ads',
+  'why.b3': 'Gets a simple, instant communication channel without fighting for reach and ads',
   'why.b4': 'Has a permanent channel to customers without building and maintaining an own app, the way big chains do',
 
   'for.title': 'Who is it for?',
