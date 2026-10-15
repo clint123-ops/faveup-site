@@ -548,6 +548,31 @@ a {
   overflow: hidden;
 }
 
+/* Touch screens: controls grow to a finger-sized target (about 44px on the hero phone). */
+@media (pointer: coarse) {
+  .phone__controls button {
+    width: 4.4em;
+    height: 4.4em;
+  }
+  .phone__controls .i {
+    width: 1.9em;
+    height: 1.9em;
+  }
+  .phone__mute {
+    left: 1.4em;
+  }
+  .phone__close {
+    left: 6.6em;
+  }
+  .phone__progress {
+    left: 12em;
+    bottom: 5.3em;
+  }
+  .phone--film .phone__progress {
+    bottom: 3.6em;
+  }
+}
+
 .phone__progress span {
   display: block;
   height: 100%;
