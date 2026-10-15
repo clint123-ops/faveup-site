@@ -54,11 +54,10 @@ const en = {
 
   'why.title': 'Why FaveUp?',
   'why.subtitle': 'The simplest way to stay in touch with your customers',
-  'why.b1':
-    'Reaches people who already know and like the place more effectively – they get notified about new products, promotions, events and news',
-  'why.b2': 'Increases sales among loyal customers',
-  'why.b3': 'Can add time-limited offers and boost customer engagement with limited-time promotions',
-  'why.b4': 'Gets a simple communication channel without fighting for reach and ads',
+  'why.b1': 'Reaches people who already know and like the place more effectively and grows sales among regulars – they get notified about new products, promotions and events',
+  'why.b2': 'Can add time-limited offers and boost customer engagement with limited-time promotions',
+  'why.b3': 'Gets a simple communication channel without fighting for reach and ads',
+  'why.b4': 'Has a permanent channel to customers without building and maintaining an own app, the way big chains do',
 
   'for.title': 'Who is it for?',
   'for.subtitle': 'We can help many industries — here are a few',
