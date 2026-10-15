@@ -24,7 +24,7 @@ Live on GitHub Pages (`clint123-ops/faveup-site`), served from the `gh-pages` br
 npm run deploy
 ```
 
-That pushes `site/` to `gh-pages`, and Pages republishes within a minute or two. Custom domain: `www.faveup.app`. Namecheap DNS has `A @` → 185.199.108–111.153 and `CNAME www` → `clint123-ops.github.io`, and GitHub redirects `faveup.app` to `www`.
+That replaces `gh-pages` with the current `site/` from `main` (the branch is only ever a copy, so it is force-pushed), and Pages republishes within a minute or two. `site/CNAME` keeps the custom domain set on every deploy. Custom domain: `www.faveup.app`. Namecheap DNS has `A @` → 185.199.108–111.153 and `CNAME www` → `clint123-ops.github.io`, and GitHub redirects `faveup.app` to `www`.
 
 Any other static host works too, as long as it answers HTTP Range requests for the `.mp4` (Safari will not play the film otherwise).
 
