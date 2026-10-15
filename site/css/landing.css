@@ -654,16 +654,56 @@
   transform: translateY(-3px);
 }
 
-.benefit__title {
-  margin: 24px 0 10px;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+/* Same card language as the owner-benefits slide in the presentation. */
+.benefit__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.benefit__desc {
-  color: var(--gray-600);
-  line-height: 1.65;
+.benefit__num {
+  padding: 4px 12px;
+  border-radius: 9px;
+  background: var(--mint-150);
+  color: #0e7a6a;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.benefit__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--mint-150);
+  color: #13302c;
+}
+
+.benefit__icon .i {
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.8;
+}
+
+.benefit__icon--alert::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 2px var(--mint-150);
+}
+
+.benefit__text {
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--gray-800);
 }
 
 /* Who is it for */
@@ -998,10 +1038,6 @@
 .phone--sm {
   --w: 230px;
   margin: 0 auto;
-}
-
-.notif--spaced {
-  margin-top: 3.4em;
 }
 
 .soon {

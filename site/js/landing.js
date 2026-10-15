@@ -20,8 +20,8 @@ const en = {
 
   'phone.date': 'Tuesday, December 17',
   'phone.now': 'now',
-  'phone.notifTitle': 'Cinnamon rolls just came out of the oven! 🥐☕',
-  'phone.notifBody': 'Show this push at the bar → coffee + cinnamon roll -50%. ⏱️ Only for 1h!',
+  'phone.notifTitle': '☕ Fresh beans just arrived!',
+  'phone.notifBody': 'Try our Ethiopian blend. The first 20 people get 20% off!',
   'phone.unlock': 'Slide to unlock',
 
   'player.play': 'See how FaveUp works',
@@ -55,14 +55,11 @@ const en = {
 
   'why.title': 'Why FaveUp?',
   'why.subtitle': 'The simplest way to stay in touch with your customers',
-  'why.b1Title': 'Direct Audience',
-  'why.b1Desc': 'Subscribers chose to follow you. Skip the noise, speak to real fans.',
-  'why.b2Title': 'Instant Reach',
-  'why.b2Desc': 'Send notifications instantly. Perfectly timed messages, every time.',
-  'why.b3Title': 'Simple Analytics',
-  'why.b3Desc': 'Track followers and engagement. Clear metrics that matter.',
-  'why.b4Title': 'Easy to Use',
-  'why.b4Desc': 'No technical skills needed. Create and send in seconds.',
+  'why.b1':
+    'Reaches people who already know and like the place more effectively – they get notified about new products, promotions, events and news',
+  'why.b2': 'Increases sales among loyal customers',
+  'why.b3': 'Can add time-limited offers and boost customer engagement with limited-time promotions',
+  'why.b4': 'Gets a simple communication channel without fighting for reach and ads',
 
   'for.title': 'Who is it for?',
   'for.subtitle': 'We can help many industries — here are a few',
@@ -94,8 +91,6 @@ const en = {
   'users.cta': 'Join the waitlist',
   'users.demoTitle': 'See it in action 📱',
   'users.demoSub': 'Example notification from a local coffee shop',
-  'users.notifTitle': '☕ Fresh beans just arrived!',
-  'users.notifBody': 'Try our Ethiopian blend. The first 20 people get 20% off!',
   'users.soon': 'Coming soon',
   'users.stayTitle': 'Stay connected with your favorite local spots',
   'users.stayDesc':
