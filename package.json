@@ -10,6 +10,6 @@
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "icons": "node scripts/icons.mjs",
-    "deploy": "git push --force origin \"$(git subtree split --prefix site main)\":refs/heads/gh-pages"
+    "deploy": "node scripts/deploy.mjs"
   }
 }
