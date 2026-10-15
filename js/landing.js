@@ -36,8 +36,9 @@ const en = {
   'what.title': 'What is FaveUp?',
   'what.desc':
     'FaveUp is a simple notification channel that bypasses social media noise and ineffective newsletters: customers scan a QR code and get news about promotions, novelties and new products, while you build loyalty and grow sales.',
-  'what.example':
-    'Aroma Café: "Fresh out of the oven… the whole street smells of it! 🥐☕". Thanks to this, customers came the same day and used the promotion.',
+  'what.exampleLabel': 'Real-life example',
+  'what.examplePush': 'Fresh out of the oven… the whole street smells of it! 🥐☕',
+  'what.exampleResult': 'Customers came the same day and used the promotion.',
   'what.stat1': "and you're connected with your customer",
   'what.stat2': 'delivery success rate',
   'what.stat3Value': '$0',
