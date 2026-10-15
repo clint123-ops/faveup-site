@@ -333,15 +333,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 52px;
 }
 
 .hero__cta-film {
   position: relative;
 }
 
+/* With the button under the phone, the arrow curves up from its corner to the phone. */
 .hero__arrow {
-  display: none;
+  position: absolute;
+  right: 6px;
+  top: -54px;
+  width: 78px;
+  color: var(--teal);
+  transform: scaleX(-1);
 }
 
 @media (min-width: 1024px) {
@@ -361,12 +367,6 @@
   .hero__actions {
     justify-content: flex-start;
   }
-  .hero__visual {
-    align-items: flex-end;
-  }
-  .hero__cta-film {
-    align-self: center;
-  }
 }
 
 /* Wide screens: the film CTA sits to the left of the phone with an arrow pointing at it. */
@@ -382,12 +382,10 @@
     margin-bottom: 72px;
   }
   .hero__arrow {
-    display: block;
-    position: absolute;
     right: -30px;
     top: -64px;
     width: 96px;
-    color: var(--teal);
+    transform: none;
   }
 }
 

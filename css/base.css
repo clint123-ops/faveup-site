@@ -306,19 +306,6 @@ a {
   object-fit: cover;
 }
 
-/* Brand mark as in the film's push: white cup on the FaveUp teal. */
-.notif__avatar--brand {
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #40e0d0, #20b2aa);
-  color: #fff;
-}
-
-.notif__avatar--brand .i {
-  width: 2em;
-  height: 2em;
-}
-
 .notif__app {
   flex: 1;
   min-width: 0;
