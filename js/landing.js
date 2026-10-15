@@ -191,6 +191,7 @@ for (const form of document.querySelectorAll('[data-signup]')) {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     error.hidden = true;
+    done.hidden = true;
     form.classList.add('is-sending');
     try {
       const response = await fetch(FORMSPREE_URL, {
@@ -204,7 +205,8 @@ for (const form of document.querySelectorAll('[data-signup]')) {
         }),
       });
       if (!response.ok) throw new Error(`Formspree responded ${response.status}`);
-      form.hidden = true;
+      // The form stays usable for another address, so it starts empty again.
+      form.reset();
       done.hidden = false;
     } catch (failure) {
       console.error(failure);

@@ -842,6 +842,10 @@
   animation: fade-up 0.5s var(--ease-out);
 }
 
+.signup-done {
+  margin-top: 24px;
+}
+
 .signup-done[hidden] {
   display: none;
 }
