@@ -140,6 +140,30 @@
   display: none;
 }
 
+/* Once the page is scrolled, the view switch shrinks to its icons (labels stay
+   in the accessibility tree; the title gives a hover hint). */
+[data-view-button] {
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, gap 0.35s var(--ease-out), padding 0.35s var(--ease-out);
+}
+
+.view-label {
+  display: inline-block;
+  max-width: 12em;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.35s var(--ease-out), opacity 0.25s;
+}
+
+.topbar.is-scrolled [data-view-button] {
+  gap: 0;
+  padding: 8px 12px;
+}
+
+.topbar.is-scrolled .view-label {
+  max-width: 0;
+  opacity: 0;
+}
+
 @media (min-width: 1180px) {
   .topbar.is-scrolled[data-view-current='business'] .topbar__cta,
   .topbar.is-scrolled[data-view-current='users'] .topbar__cta {
