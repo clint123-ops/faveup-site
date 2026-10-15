@@ -43,7 +43,7 @@ const en = {
   'what.stat3Value': '$0',
   'what.stat3': 'no custom app costs',
 
-  'how.title': 'How it works',
+  'how.title': 'How does it work in practice?',
   'how.subtitle': '4 simple steps to reach your customers',
   'how.s1Title': 'QR Code',
   'how.s1Desc': 'Place your code in a visible spot: counter, bar, table, receipt.',
