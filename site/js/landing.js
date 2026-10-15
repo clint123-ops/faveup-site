@@ -7,6 +7,7 @@ const FORMSPREE_URL = 'https://formspree.io/f/xwlezeap';
 const en = {
   'brand.tagline': 'Built with ❤️ for local businesses and their communities',
   'nav.join': 'Join the waitlist',
+  'nav.joinShort': 'Join',
   'nav.viewLabel': 'View',
   'nav.langLabel': 'Language',
   'nav.business': 'For Business',
@@ -160,7 +161,11 @@ for (const link of document.querySelectorAll('.scroll-hint')) {
   });
 }
 
-const onScroll = () => topbar.classList.toggle('is-scrolled', window.scrollY > 100);
+const onScroll = () => {
+  topbar.classList.toggle('is-scrolled', window.scrollY > 100);
+  const heroCta = views[topbar.dataset.viewCurrent].querySelector('.hero__actions [data-join]');
+  topbar.classList.toggle('has-cta', heroCta.getBoundingClientRect().bottom < topbar.offsetHeight);
+};
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 

@@ -177,10 +177,12 @@ a {
   background: var(--gray-200);
 }
 
+/* Selected state is a turquoise frame on white, so the waitlist button stays
+   the only solid turquoise control on the page. */
 .segmented button[aria-pressed='true'] {
-  background: var(--teal);
-  color: #fff;
-  box-shadow: 0 6px 14px -6px rgb(32 178 170 / 0.8);
+  background: #fff;
+  color: #0e7a6a;
+  box-shadow: inset 0 0 0 2px var(--teal), 0 4px 12px -6px rgb(32 178 170 / 0.5);
 }
 
 .segmented--lang button {
@@ -511,14 +513,17 @@ a {
   height: 1.6em;
 }
 
+.phone__mute,
 .phone__close {
-  top: 4.4em;
-  right: 1.6em;
+  bottom: 3.3em;
 }
 
 .phone__mute {
-  bottom: 3.3em;
   left: 1.6em;
+}
+
+.phone__close {
+  left: 5.6em;
 }
 
 .phone__mute .i-on,
@@ -533,7 +538,7 @@ a {
 
 .phone__progress {
   position: absolute;
-  left: 6.4em;
+  left: 10.2em;
   right: 2.2em;
   bottom: 4.85em;
   height: 0.4em;
@@ -610,11 +615,8 @@ a {
   opacity: 0;
 }
 
+.phone--film .phone__mute,
 .phone--film .phone__close {
-  top: 1.6em;
-}
-
-.phone--film .phone__mute {
   bottom: 1.6em;
 }
 
@@ -651,8 +653,9 @@ a {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #40e0d0, #20b2aa);
-  color: #fff;
+  border: 2px solid var(--teal);
+  background: #fff;
+  color: #13a294;
   flex-shrink: 0;
 }
 
