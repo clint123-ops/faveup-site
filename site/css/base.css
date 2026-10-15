@@ -287,6 +287,7 @@ a {
 
 .notif {
   margin: 2.6em 1.3em 0;
+  text-align: left;
   padding: 1.2em;
   border-radius: 2em;
   background: rgb(255 255 255 / 0.96);

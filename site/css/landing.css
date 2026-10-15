@@ -402,6 +402,21 @@
   --w: var(--phone-w);
 }
 
+/* Landing phones get a soft, faded wallpaper so the notification is what stands out. */
+.hero .phone__screen {
+  background: linear-gradient(165deg, #e6f8f4 0%, #c9efe7 50%, #a9e3d8 100%);
+  color: #12423b;
+}
+
+.hero .phone__unlock {
+  border-color: rgb(18 66 59 / 0.15);
+  background: rgb(255 255 255 / 0.6);
+}
+
+.hero .phone__home {
+  background: rgb(18 66 59 / 0.75);
+}
+
 .hero__cta-film {
   position: relative;
 }
@@ -669,7 +684,7 @@
 
 .step {
   position: relative;
-  padding: 28px;
+  padding: 14px 14px 24px;
   border-radius: 22px;
   border: 1px solid rgb(17 24 39 / 0.08);
   background: #fff;
@@ -682,33 +697,79 @@
   box-shadow: 0 24px 48px -28px rgb(32 178 170 / 0.6);
 }
 
-.step__num {
+.step__visual {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 13px;
-  background: var(--teal);
-  color: #fff;
-  font-size: 20px;
-  font-weight: 800;
+  height: 170px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #f3fcfa, #e2f7f2);
 }
 
 .step__art {
   width: 100%;
-  max-width: 200px;
+  max-width: 240px;
   height: auto;
-  margin: 18px auto 20px;
-  filter: drop-shadow(0 10px 14px rgb(16 24 40 / 0.12));
+}
+
+/* One line-art language for all four schemes: dark outlines, turquoise accents. */
+.step__art .ink {
+  fill: none;
+  stroke: #1f3b37;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.step__art .ink-fill {
+  fill: #fff;
+  stroke: #1f3b37;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.step__art .accent-line {
+  fill: none;
+  stroke: #36d6c6;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.step__art .accent {
+  fill: #36d6c6;
+}
+
+.step__art .soft {
+  fill: #c8f1e9;
+}
+
+.step__art .dark {
+  fill: #1f3b37;
+}
+
+.step__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 10px 8px;
+}
+
+.step__num {
+  padding: 3px 10px;
+  border-radius: 9px;
+  background: var(--mint-150);
+  color: #0e7a6a;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .step__title {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
 .step__desc {
+  margin: 0 10px;
   font-size: 15px;
   line-height: 1.6;
   color: var(--gray-600);
@@ -772,18 +833,6 @@
   width: 32px;
   height: 32px;
   stroke-width: 1.8;
-}
-
-.benefit__icon--alert::after {
-  content: '';
-  position: absolute;
-  top: 9px;
-  right: 9px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: #ef4444;
-  box-shadow: 0 0 0 2px var(--mint-150);
 }
 
 .benefit__text {

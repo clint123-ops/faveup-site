@@ -86,9 +86,9 @@
                   <div class="phone__status">
                     <span>9:41</span>
                     <span class="phone__status-icons" aria-hidden="true">
-                      <svg viewBox="0 0 16 12" fill="#fff"><rect x="0" y="8" width="2.4" height="4" rx=".6" /><rect x="3.8" y="6" width="2.4" height="6" rx=".6" /><rect x="7.6" y="3.5" width="2.4" height="8.5" rx=".6" /><rect x="11.4" y="1" width="2.4" height="11" rx=".6" /></svg>
-                      <svg viewBox="0 0 16 12" fill="#fff"><path d="M8 2.2c2.3 0 4.4.9 5.9 2.4l1.1-1.1A9.9 9.9 0 0 0 8 .6 9.9 9.9 0 0 0 1 3.5l1.1 1.1A8.3 8.3 0 0 1 8 2.2Zm0 3.2c1.4 0 2.7.6 3.6 1.5l1.1-1.1A6.7 6.7 0 0 0 8 3.8c-1.8 0-3.5.7-4.7 1.9l1.1 1.1c1-.9 2.2-1.4 3.6-1.4Zm0 3.2c-.6 0-1.1.2-1.5.6L8 10.7l1.5-1.5c-.4-.4-.9-.6-1.5-.6Z" /></svg>
-                      <svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6" /><rect x="2" y="2" width="19" height="8" rx="1.8" fill="#fff" /><rect x="23.6" y="4" width="1.6" height="4" rx=".8" fill="#fff" fill-opacity=".6" /></svg>
+                      <svg viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="8" width="2.4" height="4" rx=".6" /><rect x="3.8" y="6" width="2.4" height="6" rx=".6" /><rect x="7.6" y="3.5" width="2.4" height="8.5" rx=".6" /><rect x="11.4" y="1" width="2.4" height="11" rx=".6" /></svg>
+                      <svg viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 5.9 2.4l1.1-1.1A9.9 9.9 0 0 0 8 .6 9.9 9.9 0 0 0 1 3.5l1.1 1.1A8.3 8.3 0 0 1 8 2.2Zm0 3.2c1.4 0 2.7.6 3.6 1.5l1.1-1.1A6.7 6.7 0 0 0 8 3.8c-1.8 0-3.5.7-4.7 1.9l1.1 1.1c1-.9 2.2-1.4 3.6-1.4Zm0 3.2c-.6 0-1.1.2-1.5.6L8 10.7l1.5-1.5c-.4-.4-.9-.6-1.5-.6Z" /></svg>
+                      <svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" stroke-opacity=".6" /><rect x="2" y="2" width="19" height="8" rx="1.8" fill="currentColor" /><rect x="23.6" y="4" width="1.6" height="4" rx=".8" fill="currentColor" fill-opacity=".6" /></svg>
                     </span>
                   </div>
                   <div class="phone__clock">
@@ -105,7 +105,7 @@
                     </div>
                     <p class="notif__title" data-i18n="phone.notifTitle">☕ Świeże ziarna właśnie dotarły!</p>
                     <p class="notif__body" data-i18n="phone.notifBody">Spróbuj naszej etiopskiej mieszanki. Pierwsze 20 osób dostaje 20% zniżki!</p>
-                    <img class="notif__image" src="assets/img/aroma-paczki-kawy.webp" alt="" width="720" height="313" />
+                    <img class="notif__image" src="assets/img/aroma-paczka-kawy.webp" alt="" width="720" height="313" />
                   </div>
                   <div class="phone__unlock">
                     <svg class="i" aria-hidden="true"><use href="assets/icons.svg#lock" /></svg>
@@ -191,64 +191,78 @@
           </div>
           <ol class="steps">
             <li class="step reveal">
-              <span class="step__num">1</span>
-              <svg class="step__art" viewBox="0 0 200 200" aria-hidden="true">
-                <defs><linearGradient id="g-qr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36D6C6" stop-opacity=".3" /><stop offset="1" stop-color="#2AC4B4" stop-opacity=".15" /></linearGradient></defs>
-                <rect x="45" y="30" width="110" height="110" fill="url(#g-qr)" stroke="#36D6C6" stroke-width="3" rx="15" />
-                <g fill="#1F2937"><rect x="58" y="43" width="30" height="30" rx="3" /><rect x="112" y="43" width="30" height="30" rx="3" /><rect x="58" y="97" width="30" height="30" rx="3" /><rect x="95" y="80" width="12" height="12" /><rect x="115" y="85" width="12" height="12" /><rect x="95" y="105" width="12" height="12" /><rect x="120" y="105" width="12" height="12" /></g>
-                <path d="M100 150v30m-12-12 12 12 12-12" stroke="#10b981" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <h3 class="step__title" data-i18n="how.s1Title">QR Code</h3>
+              <div class="step__visual">
+                <svg class="step__art" viewBox="0 0 240 150" aria-hidden="true">
+                <path class="ink" d="M40 128H200" />
+                <path class="ink-fill" d="M90 34h60l10 94H80z" />
+                <rect class="ink" x="99" y="48" width="16" height="16" rx="3" /><rect class="dark" x="104" y="53" width="6" height="6" rx="1" />
+                <rect class="ink" x="125" y="48" width="16" height="16" rx="3" /><rect class="dark" x="130" y="53" width="6" height="6" rx="1" />
+                <rect class="ink" x="99" y="74" width="16" height="16" rx="3" /><rect class="dark" x="104" y="79" width="6" height="6" rx="1" />
+                <rect class="accent" x="125" y="74" width="6" height="6" rx="1" /><rect class="accent" x="135" y="74" width="6" height="6" rx="1" /><rect class="accent" x="130" y="84" width="6" height="6" rx="1" />
+                <rect class="soft" x="102" y="102" width="36" height="5" rx="2.5" />
+                <path class="accent" d="M174 34l2.6 6.4L183 43l-6.4 2.6L174 52l-2.6-6.4L165 43l6.4-2.6z" />
+                </svg>
+              </div>
+              <div class="step__head">
+                <span class="step__num">01</span>
+                <h3 class="step__title" data-i18n="how.s1Title">QR Code</h3>
+              </div>
               <p class="step__desc" data-i18n="how.s1Desc">Umieść swój kod w widocznym miejscu: kasa, bar, stolik, paragon.</p>
             </li>
             <li class="step reveal" style="--delay: 0.08s">
-              <span class="step__num">2</span>
-              <svg class="step__art" viewBox="0 0 200 200" aria-hidden="true">
-                <defs><linearGradient id="g-phone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36D6C6" stop-opacity=".3" /><stop offset="1" stop-color="#2AC4B4" stop-opacity=".15" /></linearGradient></defs>
-                <rect x="60" y="30" width="80" height="140" fill="url(#g-phone)" stroke="#36D6C6" stroke-width="3" rx="15" />
-                <rect x="70" y="60" width="60" height="60" fill="#fff" rx="8" stroke="#E5E7EB" stroke-width="2" />
-                <circle cx="100" cy="80" r="10" fill="#fbbf24" />
-                <text x="100" y="86" fill="#fff" font-size="14" text-anchor="middle" font-weight="bold">!</text>
-                <rect x="78" y="95" width="44" height="6" fill="#D1D5DB" rx="2" /><rect x="78" y="105" width="38" height="5" fill="#E5E7EB" rx="2" />
-                <rect x="75" y="130" width="50" height="14" fill="#10b981" rx="6" />
-                <text x="100" y="140" fill="#fff" font-size="10" text-anchor="middle" font-weight="bold">ALLOW</text>
-                <circle cx="100" cy="155" r="18" fill="#10b981" opacity=".9" />
-                <path d="m92 155 5 5 11-11" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <h3 class="step__title" data-i18n="how.s2Title">Skanowanie</h3>
+              <div class="step__visual">
+                <svg class="step__art" viewBox="0 0 240 150" aria-hidden="true">
+                <rect class="ink-fill" x="92" y="18" width="56" height="114" rx="12" />
+                <path class="ink" d="M113 28h14" />
+                <path class="accent-line" d="M104 56V46h10M126 46h10v10M136 70v10h-10M114 80h-10V70" />
+                <rect class="dark" x="110" y="52" width="6" height="6" rx="1" /><rect class="dark" x="124" y="52" width="6" height="6" rx="1" /><rect class="dark" x="110" y="66" width="6" height="6" rx="1" />
+                <rect class="soft" x="102" y="94" width="36" height="14" rx="7" />
+                <path class="ink" d="M114 101l4 4 8-8" />
+                <circle class="accent" cx="160" cy="36" r="15" />
+                <path fill="#fff" d="M160 44l-6.6-6.5a3.9 3.9 0 0 1 5.5-5.5l1.1 1.1 1.1-1.1a3.9 3.9 0 0 1 5.5 5.5z" />
+                </svg>
+              </div>
+              <div class="step__head">
+                <span class="step__num">02</span>
+                <h3 class="step__title" data-i18n="how.s2Title">Skanowanie</h3>
+              </div>
               <p class="step__desc" data-i18n="how.s2Desc">Klienci skanują QR i zaczynają Cię followować.</p>
             </li>
             <li class="step reveal" style="--delay: 0.16s">
-              <span class="step__num">3</span>
-              <svg class="step__art" viewBox="0 0 200 200" aria-hidden="true">
-                <defs><linearGradient id="g-laptop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36D6C6" stop-opacity=".3" /><stop offset="1" stop-color="#2AC4B4" stop-opacity=".15" /></linearGradient></defs>
-                <rect x="35" y="45" width="130" height="85" fill="url(#g-laptop)" stroke="#36D6C6" stroke-width="3" rx="10" />
-                <rect x="45" y="55" width="110" height="35" fill="#F3F4F6" rx="6" />
-                <rect x="50" y="60" width="60" height="5" fill="#D1D5DB" rx="2" /><rect x="50" y="70" width="85" height="5" fill="#E5E7EB" rx="2" /><rect x="50" y="80" width="70" height="5" fill="#E5E7EB" rx="2" />
-                <rect x="120" y="95" width="30" height="15" fill="#36D6C6" rx="6" />
-                <text x="135" y="105" fill="#fff" font-size="10" text-anchor="middle" font-weight="bold">SEND</text>
-                <path d="M25 130h150l-5 15H30Z" fill="#36D6C6" opacity=".7" />
-                <circle cx="50" cy="160" r="12" fill="#10b981" opacity=".8" /><path d="m46 160 3 3 6-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="100" cy="165" r="12" fill="#3b82f6" opacity=".8" /><path d="m96 165 3 3 6-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="150" cy="160" r="12" fill="#f59e0b" opacity=".8" /><path d="m146 160 3 3 6-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="m60 155 10-5m40 10 10-5m40 0 10-5" stroke="#36D6C6" stroke-width="3" stroke-linecap="round" opacity=".6" />
-              </svg>
-              <h3 class="step__title" data-i18n="how.s3Title">Powiadomienia</h3>
+              <div class="step__visual">
+                <svg class="step__art" viewBox="0 0 240 150" aria-hidden="true">
+                <rect class="ink-fill" x="52" y="28" width="96" height="66" rx="8" />
+                <path class="ink-fill" d="M42 100h116l-7 12H49z" />
+                <rect class="dark" x="64" y="40" width="38" height="5" rx="2.5" />
+                <rect class="soft" x="64" y="52" width="70" height="5" rx="2.5" /><rect class="soft" x="64" y="62" width="54" height="5" rx="2.5" />
+                <rect class="accent" x="102" y="74" width="34" height="12" rx="6" />
+                <path class="accent-line" stroke-dasharray="1 7" d="M142 78c10-4 16-14 24-20" />
+                <path class="accent" d="M168 52l30-14-12 30-6-12z" />
+                <path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" d="M180 56l18-18" />
+                </svg>
+              </div>
+              <div class="step__head">
+                <span class="step__num">03</span>
+                <h3 class="step__title" data-i18n="how.s3Title">Powiadomienia</h3>
+              </div>
               <p class="step__desc" data-i18n="how.s3Desc">W kilku kliknięciach informujesz klientów o nowościach i promocjach.</p>
             </li>
             <li class="step reveal" style="--delay: 0.24s">
-              <span class="step__num">4</span>
-              <svg class="step__art" viewBox="0 0 200 200" aria-hidden="true">
-                <defs><linearGradient id="g-growth" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36D6C6" stop-opacity=".3" /><stop offset="1" stop-color="#2AC4B4" stop-opacity=".15" /></linearGradient></defs>
-                <rect x="50" y="80" width="100" height="70" fill="url(#g-growth)" stroke="#36D6C6" stroke-width="3" rx="8" />
-                <rect x="70" y="100" width="20" height="25" fill="#36D6C6" opacity=".5" rx="3" /><rect x="110" y="100" width="20" height="25" fill="#36D6C6" opacity=".5" rx="3" />
-                <rect x="85" y="130" width="30" height="20" fill="#10b981" rx="3" /><circle cx="113" cy="140" r="2" fill="#fff" />
-                <path d="m40 80 60-30 60 30" fill="#36D6C6" opacity=".7" />
-                <rect x="65" y="40" width="8" height="15" fill="#10b981" rx="2" /><rect x="80" y="30" width="8" height="25" fill="#10b981" rx="2" /><rect x="95" y="20" width="8" height="35" fill="#10b981" rx="2" /><rect x="110" y="10" width="8" height="45" fill="#10b981" rx="2" />
-                <path d="m125 25 10-10 10 10m-10-10v35" stroke="#10b981" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="m55 25 3 3-3 3-3-3Zm95 10 3 3-3 3-3-3ZM72 15l3 3-3 3-3-3Z" fill="#fbbf24" />
-              </svg>
-              <h3 class="step__title" data-i18n="how.s4Title">Zachowanie Klientów</h3>
+              <div class="step__visual">
+                <svg class="step__art" viewBox="0 0 240 150" aria-hidden="true">
+                <path class="ink" d="M48 126H192" />
+                <rect class="ink-fill" x="60" y="96" width="22" height="30" rx="4" />
+                <rect class="ink-fill" x="92" y="82" width="22" height="44" rx="4" />
+                <rect class="ink-fill" x="124" y="66" width="22" height="60" rx="4" />
+                <rect class="accent" x="156" y="46" width="22" height="80" rx="4" />
+                <path class="accent-line" d="M58 82l34-18 30-8 46-30" />
+                <path class="accent-line" d="M156 24h14v14" />
+                </svg>
+              </div>
+              <div class="step__head">
+                <span class="step__num">04</span>
+                <h3 class="step__title" data-i18n="how.s4Title">Zachowanie Klientów</h3>
+              </div>
               <p class="step__desc" data-i18n="how.s4Desc">Klienci wracają częściej, gdy są na bieżąco informowani. Sprzedaż wzrasta naturalnie.</p>
             </li>
           </ol>
@@ -279,7 +293,7 @@
             <article class="benefit reveal">
               <div class="benefit__top">
                 <span class="benefit__num">03</span>
-                <span class="benefit__icon benefit__icon--alert"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#clock" /></svg></span>
+                <span class="benefit__icon"><svg class="i" aria-hidden="true"><use href="assets/icons.svg#clock" /></svg></span>
               </div>
               <p class="benefit__text" data-i18n="why.b3">Może dodawać oferty czasowe i zwiększać zaangażowanie klientów poprzez promocje limitowane czasowo</p>
             </article>
@@ -394,9 +408,9 @@
                     <div class="phone__status">
                       <span>9:41</span>
                       <span class="phone__status-icons" aria-hidden="true">
-                        <svg viewBox="0 0 16 12" fill="#fff"><rect x="0" y="8" width="2.4" height="4" rx=".6" /><rect x="3.8" y="6" width="2.4" height="6" rx=".6" /><rect x="7.6" y="3.5" width="2.4" height="8.5" rx=".6" /><rect x="11.4" y="1" width="2.4" height="11" rx=".6" /></svg>
-                        <svg viewBox="0 0 16 12" fill="#fff"><path d="M8 2.2c2.3 0 4.4.9 5.9 2.4l1.1-1.1A9.9 9.9 0 0 0 8 .6 9.9 9.9 0 0 0 1 3.5l1.1 1.1A8.3 8.3 0 0 1 8 2.2Zm0 3.2c1.4 0 2.7.6 3.6 1.5l1.1-1.1A6.7 6.7 0 0 0 8 3.8c-1.8 0-3.5.7-4.7 1.9l1.1 1.1c1-.9 2.2-1.4 3.6-1.4Zm0 3.2c-.6 0-1.1.2-1.5.6L8 10.7l1.5-1.5c-.4-.4-.9-.6-1.5-.6Z" /></svg>
-                        <svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6" /><rect x="2" y="2" width="19" height="8" rx="1.8" fill="#fff" /><rect x="23.6" y="4" width="1.6" height="4" rx=".8" fill="#fff" fill-opacity=".6" /></svg>
+                        <svg viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="8" width="2.4" height="4" rx=".6" /><rect x="3.8" y="6" width="2.4" height="6" rx=".6" /><rect x="7.6" y="3.5" width="2.4" height="8.5" rx=".6" /><rect x="11.4" y="1" width="2.4" height="11" rx=".6" /></svg>
+                        <svg viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 5.9 2.4l1.1-1.1A9.9 9.9 0 0 0 8 .6 9.9 9.9 0 0 0 1 3.5l1.1 1.1A8.3 8.3 0 0 1 8 2.2Zm0 3.2c1.4 0 2.7.6 3.6 1.5l1.1-1.1A6.7 6.7 0 0 0 8 3.8c-1.8 0-3.5.7-4.7 1.9l1.1 1.1c1-.9 2.2-1.4 3.6-1.4Zm0 3.2c-.6 0-1.1.2-1.5.6L8 10.7l1.5-1.5c-.4-.4-.9-.6-1.5-.6Z" /></svg>
+                        <svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" stroke-opacity=".6" /><rect x="2" y="2" width="19" height="8" rx="1.8" fill="currentColor" /><rect x="23.6" y="4" width="1.6" height="4" rx=".8" fill="currentColor" fill-opacity=".6" /></svg>
                       </span>
                     </div>
                     <div class="phone__clock">
@@ -413,7 +427,7 @@
                       </div>
                       <p class="notif__title" data-i18n="phone.notifTitle">☕ Świeże ziarna właśnie dotarły!</p>
                       <p class="notif__body" data-i18n="phone.notifBody">Spróbuj naszej etiopskiej mieszanki. Pierwsze 20 osób dostaje 20% zniżki!</p>
-                      <img class="notif__image" src="assets/img/aroma-paczki-kawy.webp" alt="" width="720" height="313" />
+                      <img class="notif__image" src="assets/img/aroma-paczka-kawy.webp" alt="" width="720" height="313" />
                     </div>
                     <div class="phone__unlock">
                       <svg class="i" aria-hidden="true"><use href="assets/icons.svg#lock" /></svg>
