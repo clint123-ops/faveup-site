@@ -1,0 +1,15 @@
+{
+  "name": "faveup-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FaveUp marketing site (faveup.app): business and user landing views plus the detailed owner presentation.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "icons": "node scripts/icons.mjs",
+    "deploy": "git subtree push --prefix site origin gh-pages"
+  }
+}
