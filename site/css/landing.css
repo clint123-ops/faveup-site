@@ -269,7 +269,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 72px 0 40px;
+  padding: 72px 0 24px;
 }
 
 .hero__bg {
@@ -433,7 +433,7 @@
 
 @media (min-width: 1024px) {
   .hero {
-    padding: 112px 0 48px;
+    padding: 112px 0 24px;
   }
   .hero__grid {
     grid-template-columns: 1.1fr 1fr;
@@ -534,6 +534,11 @@
   background: var(--gray-50);
 }
 
+/* The hero already ends with the scroll hint, so the first section follows it closely. */
+.hero + .section {
+  padding-top: 24px;
+}
+
 @media (min-width: 1024px) {
   .section {
     padding: 120px 0;
@@ -597,67 +602,196 @@
   height: 30px;
 }
 
-/* What is FaveUp */
+/* What is FaveUp: the pitch with its numbers on the left, a real-life push on the right. */
 
 .what {
-  padding: clamp(28px, 6vw, 64px);
-  border-radius: 28px;
-  border: 1px solid rgb(17 24 39 / 0.1);
-  background: linear-gradient(135deg, var(--gray-50), #fff);
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  padding: clamp(24px, 5vw, 56px);
+  border-radius: 32px;
+  border: 1px solid rgb(54 214 198 / 0.2);
+  background: linear-gradient(135deg, #f3fcfa 0%, #fff 55%);
+}
+
+@media (min-width: 1024px) {
+  .what {
+    grid-template-columns: 1.25fr 1fr;
+    gap: 56px;
+  }
 }
 
 .what__head {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 14px;
 }
 
-.what__body {
-  max-width: 768px;
-  margin: 0 auto;
+.what__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--mint-150);
+  color: #0e7a6a;
+  flex-shrink: 0;
+}
+
+.what__icon .i {
+  width: 24px;
+  height: 24px;
 }
 
 .what__lead {
+  margin-top: 20px;
+  max-width: 36em;
   font-size: 18px;
   line-height: 1.7;
   color: var(--gray-700);
 }
 
-.what__example {
-  display: flex;
-  gap: 10px;
-  margin-top: 24px;
-  padding: 22px 24px;
-  border-radius: 18px;
-  border-left: 4px solid var(--teal);
-  background: linear-gradient(90deg, rgb(54 214 198 / 0.12), transparent);
-  line-height: 1.6;
-}
-
-.stats {
+.what__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 32px 0 0;
-  padding-top: 8px;
-  text-align: center;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.stats dd {
-  margin: 4px 0 0;
+.what__stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgb(17 24 39 / 0.07);
+  background: #fff;
+}
+
+.what__stats .i {
+  width: 20px;
+  height: 20px;
+  color: var(--teal-600);
+}
+
+.what__stats strong {
+  margin-top: 6px;
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #0f2f2a;
+}
+
+.what__stats span {
   font-size: 14px;
+  line-height: 1.4;
   color: var(--gray-600);
 }
 
-.stats__value {
-  font-size: clamp(28px, 4vw, 36px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  background: linear-gradient(90deg, var(--teal), var(--teal-700));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+@media (max-width: 559px) {
+  .what__stats {
+    grid-template-columns: 1fr;
+  }
+  .what__stats li {
+    display: grid;
+    grid-template-columns: 20px auto 1fr;
+    align-items: center;
+    column-gap: 12px;
+  }
+  .what__stats strong {
+    margin-top: 0;
+  }
+}
+
+.what__case {
+  padding: 24px;
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+.what__case-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--mint-150);
+  color: #0e7a6a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.what__case-label .i {
+  width: 16px;
+  height: 16px;
+}
+
+.what__push {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 18px;
+  background: var(--gray-50);
+  border: 1px solid rgb(17 24 39 / 0.06);
+}
+
+.what__push img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.what__push-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.what__push-head span {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+.what__push-text {
+  margin-top: 2px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--gray-800);
+}
+
+.what__result {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--gray-900);
+}
+
+.what__result-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--mint-150);
+  color: #0e7a6a;
+  flex-shrink: 0;
+}
+
+.what__result-icon .i {
+  width: 16px;
+  height: 16px;
+  stroke-width: 3;
 }
 
 /* How it works */
