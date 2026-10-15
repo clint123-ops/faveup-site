@@ -602,7 +602,7 @@
   height: 30px;
 }
 
-/* What is FaveUp: the pitch and its numbers. */
+/* What is FaveUp: the pitch. */
 
 .what {
   padding: clamp(24px, 5vw, 56px);
@@ -639,61 +639,6 @@
   font-size: 18px;
   line-height: 1.7;
   color: var(--gray-700);
-}
-
-.what__stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 28px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.what__stats li {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 16px;
-  border-radius: 18px;
-  border: 1px solid rgb(17 24 39 / 0.07);
-  background: #fff;
-}
-
-.what__stats .i {
-  width: 20px;
-  height: 20px;
-  color: var(--teal-600);
-}
-
-.what__stats strong {
-  margin-top: 6px;
-  font-size: clamp(26px, 3vw, 32px);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #0f2f2a;
-}
-
-.what__stats span {
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--gray-600);
-}
-
-@media (max-width: 559px) {
-  .what__stats {
-    grid-template-columns: 1fr;
-  }
-  .what__stats li {
-    display: grid;
-    grid-template-columns: 20px auto 1fr;
-    align-items: center;
-    column-gap: 12px;
-  }
-  .what__stats strong {
-    margin-top: 0;
-  }
 }
 
 /* How it works */
