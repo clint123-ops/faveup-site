@@ -806,13 +806,6 @@
   border-radius: 26px;
   border: 1px solid rgb(17 24 39 / 0.08);
   background: #fff;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease-out);
-}
-
-.benefit:hover {
-  border-color: rgb(54 214 198 / 0.4);
-  box-shadow: 0 30px 60px -36px rgb(32 178 170 / 0.55);
-  transform: translateY(-3px);
 }
 
 /* Same card language as the owner-benefits slide in the presentation. */
