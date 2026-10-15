@@ -62,7 +62,8 @@ const en = {
   'for.i3': 'Local Artisans',
   'for.i4': 'Gyms & Studios',
   'for.i5': 'Salons & Spas',
-  'for.i6': 'Recurring Event Venues',
+  'for.ctaTitle': 'Maybe your business needs this too?',
+  'for.ctaLink': 'Join the beta',
 
   'contact.badge': 'Get in touch',
   'contact.title': 'Sign up for the beta and get 20% off at launch.',
