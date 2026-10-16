@@ -156,12 +156,6 @@
     }
   }
 
-  async function countClicks(brandId, type) {
-    const { count, error } = await sb.from('click_tracking').select('id', { count: 'exact', head: true }).eq('brand_id', brandId).eq('click_type', type);
-    if (error) throw error;
-    return count;
-  }
-
   let loading = false;
   async function load() {
     if (loading) return;
@@ -170,10 +164,10 @@
     $('rows').replaceChildren(el('tr', {}, el('td', { colSpan: 7, class: 'muted center', text: 'Ładowanie…' })));
     try {
       await sb.rpc('faveup_sync_webhook_status');
-      const [list, scans, views] = await Promise.all([fetchAll(brandId), countClicks(brandId, 'qr_scan'), countClicks(brandId, 'page_view')]);
+      const list = await fetchAll(brandId);
       if (brandId !== placeId) return;
       rows = list;
-      renderStats(scans, views);
+      renderStats();
       renderRows();
     } catch (err) {
       console.error(err);
@@ -183,21 +177,13 @@
     }
   }
 
-  function renderStats(scans, views) {
+  function renderStats() {
     const weekAgo = Date.now() - 7 * 864e5;
-    const by = (s) => rows.filter((r) => statusOf(r) === s).length;
     const cards = [
-      ['Zapisy', rows.length, ''],
-      ['Ostatnie 7 dni', rows.filter((r) => new Date(r.created_at).getTime() >= weekAgo).length, ''],
-      ['Kod wysłany', by('sent'), 'stat--green'],
-      ['Oczekuje na wysyłkę', by('pending') + by('error'), 'stat--yellow'],
-      ['Skany QR / wejścia', `${scans} / ${views}`, ''],
+      ['Zapisy', rows.length],
+      ['Ostatnie 7 dni', rows.filter((r) => new Date(r.created_at).getTime() >= weekAgo).length],
     ];
-    $('stats').replaceChildren(...cards.map(([label, value, cls]) => el('div', { class: `stat ${cls}` }, el('span', { class: 'stat__value', text: String(value) }), el('span', { class: 'stat__label', text: label }))));
-    const pending = rows.filter((r) => ['pending', 'error'].includes(statusOf(r)));
-    const btn = $('send-pending');
-    btn.disabled = pending.length === 0;
-    btn.querySelector('span').textContent = pending.length ? `Wyślij kod do oczekujących (${pending.length})` : 'Brak oczekujących';
+    $('stats').replaceChildren(...cards.map(([label, value]) => el('div', { class: 'stat' }, el('span', { class: 'stat__value', text: String(value) }), el('span', { class: 'stat__label', text: label }))));
   }
 
   function filtered() {
@@ -249,17 +235,6 @@
     const ok = await confirmModal(again ? 'Wysłać ponownie?' : 'Wysłać kod?', `${r.email} otrzyma e-mail z kodem ${place().discountCode}${again ? ' jeszcze raz' : ''}.`);
     if (ok) send([r.id]);
   }
-
-  $('send-pending').addEventListener('click', async () => {
-    const pending = rows.filter((r) => ['pending', 'error'].includes(statusOf(r)));
-    if (!pending.length) return;
-    const ok = await confirmModal(
-      `Wysłać kod do ${pending.length} osób?`,
-      `Każda osoba ze statusem „Oczekuje” lub „Błąd” dostanie e-mail z kodem ${place().discountCode} (${place().name}).`,
-      `Wyślij (${pending.length})`,
-    );
-    if (ok) send(pending.map((r) => r.id));
-  });
 
   // ---------- export ----------
   $('export').addEventListener('click', () => {
