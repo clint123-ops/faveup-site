@@ -39,26 +39,6 @@
     toastTimer = setTimeout(() => { el.hidden = true; }, 5000);
   }
 
-  function confirmModal(title, text, okLabel = 'Wyślij') {
-    return new Promise((resolve) => {
-      const m = $('modal');
-      $('modal-title').textContent = title;
-      $('modal-text').textContent = text;
-      m.querySelector('[data-modal="ok"]').textContent = okLabel;
-      m.hidden = false;
-      m.querySelector('[data-modal="ok"]').focus();
-      const done = (v) => { m.hidden = true; m.removeEventListener('click', onClick); document.removeEventListener('keydown', onKey); resolve(v); };
-      const onClick = (e) => {
-        const a = e.target.closest('[data-modal]')?.dataset.modal;
-        if (a === 'ok') done(true);
-        else if (a === 'cancel' || e.target === m) done(false);
-      };
-      const onKey = (e) => { if (e.key === 'Escape') done(false); };
-      m.addEventListener('click', onClick);
-      document.addEventListener('keydown', onKey);
-    });
-  }
-
   const el = (tag, props = {}, ...children) => {
     const n = document.createElement(tag);
     Object.entries(props).forEach(([k, v]) => {
@@ -161,7 +141,7 @@
     if (loading) return;
     loading = true;
     const brandId = placeId;
-    $('rows').replaceChildren(el('tr', {}, el('td', { colSpan: 7, class: 'muted center', text: 'Ładowanie…' })));
+    $('rows').replaceChildren(el('tr', {}, el('td', { colSpan: 6, class: 'muted center', text: 'Ładowanie…' })));
     try {
       await sb.rpc('faveup_sync_webhook_status');
       const list = await fetchAll(brandId);
@@ -171,7 +151,7 @@
       renderRows();
     } catch (err) {
       console.error(err);
-      $('rows').replaceChildren(el('tr', {}, el('td', { colSpan: 7, class: 'center form-error', text: `Nie udało się pobrać danych: ${err.message}` })));
+      $('rows').replaceChildren(el('tr', {}, el('td', { colSpan: 6, class: 'center form-error', text: `Nie udało się pobrać danych: ${err.message}` })));
     } finally {
       loading = false;
     }
@@ -196,7 +176,7 @@
     const list = filtered();
     const p = place();
     if (!list.length) {
-      $('rows').replaceChildren(el('tr', {}, el('td', { colSpan: 7, class: 'muted center', text: rows.length ? 'Brak wyników.' : 'Brak zapisów.' })));
+      $('rows').replaceChildren(el('tr', {}, el('td', { colSpan: 6, class: 'muted center', text: rows.length ? 'Brak wyników.' : 'Brak zapisów.' })));
       return;
     }
     $('rows').replaceChildren(...list.map((r) => {
@@ -213,28 +193,12 @@
         el('td', {}, el('span', { class: 'chip', text: sourceLabel(r.source) })),
         el('td', {}, el('span', { class: 'code', text: p.discountCode })),
         el('td', { class: 'nowrap' }, el('span', { class: `badge ${cls}`, title: tip, text: label }), el('span', { class: 'tip', title: tip, 'aria-label': tip }, icon('info'))),
-        el('td', { class: 'right' }, el('button', { class: 'icon-btn', title: st === 'sent' ? 'Wyślij ponownie' : 'Wyślij kod', 'aria-label': `Wyślij kod do ${r.email}`, onclick: () => sendOne(r) }, icon('send'))),
       );
     }));
   }
   $('search').addEventListener('input', renderRows);
   $('status-filter').addEventListener('change', renderRows);
   $('refresh').addEventListener('click', load);
-
-  // ---------- sending ----------
-  async function send(ids) {
-    const { data: n, error } = await sb.rpc('faveup_admin_send', { p_ids: ids });
-    if (error) { toast(`Nie wysłano: ${error.message}`, true); return; }
-    toast(n ? `Przekazano do wysyłki: ${n}` : 'Nic nie wysłano – sprawdź webhook dla tego miejsca.', !n);
-    load();
-    setTimeout(load, 5000);
-  }
-
-  async function sendOne(r) {
-    const again = statusOf(r) === 'sent';
-    const ok = await confirmModal(again ? 'Wysłać ponownie?' : 'Wysłać kod?', `${r.email} otrzyma e-mail z kodem ${place().discountCode}${again ? ' jeszcze raz' : ''}.`);
-    if (ok) send([r.id]);
-  }
 
   // ---------- export ----------
   $('export').addEventListener('click', () => {
