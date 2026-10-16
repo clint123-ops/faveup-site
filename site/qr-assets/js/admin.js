@@ -100,9 +100,13 @@
     const f = e.currentTarget;
     const btn = f.querySelector('button');
     btn.disabled = true;
-    const { error } = await sb.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value });
+    // Supabase Auth signs in by e-mail; a short login such as "admin123" is the
+    // Supabase user admin123@faveup.app.
+    const login = f.login.value.trim().toLowerCase();
+    const email = login.includes('@') ? login : `${login}@faveup.app`;
+    const { error } = await sb.auth.signInWithPassword({ email, password: f.password.value });
     btn.disabled = false;
-    if (error) return showLogin(error.message === 'Invalid login credentials' ? 'Nieprawidłowy e-mail lub hasło.' : error.message);
+    if (error) return showLogin(error.message === 'Invalid login credentials' ? 'Nieprawidłowy login lub hasło.' : error.message);
     f.password.value = '';
     boot();
   });
